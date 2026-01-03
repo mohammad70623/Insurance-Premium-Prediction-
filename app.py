@@ -74,6 +74,15 @@ class UserInput(BaseModel):
         else:
             return 3
 
+@app.get('/')
+def home():
+    return {'message': 'Insurance Premium predection API'}
+
+@app.get('/health')
+def health_check():
+    return {
+        'status': 'OK'
+    }
         
 @app.post('/predict')
 def predict_premium(data: UserInput):
